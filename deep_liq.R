@@ -1,11 +1,21 @@
+getwd()
+
 
 install.packages('dplyr')
 library(dplyr)
 
-attrition_df<-  read.csv("F://deepLearning/ibm-hr-analytics-employee-attrition-performance/Attrition.csv")
-write.csv(attrition_df,file = "F://deepLearning/attrition_df_r.csv")
+attrition_df<-  read.csv("F://deepLearning/DL_Proj_dataset/attrition_bc.csv")
 
-glimpse(attrition_df)
+write_to_df <- function(){
+write.csv(attrition_df,file = "F://deepLearning/DL_Proj_dataset/attrition.csv")
+}
+
+attrition_df
+rm(attrition)
+rm(attrition_df_d)
+rm(tst)
+
+
 
 
 #attrition_df
@@ -54,15 +64,54 @@ attrition_df <- attrition_df %>% mutate(Gender_  = case_when(
                                         Gender == "Male" ~ 1,  
                                         Gender == "Female" ~2),Gender = NULL) %>% rename("Gender" = Gender_)
 
-##
+
+## Martial status
+
+attrition_df <- attrition_df %>% mutate(MartialStatus_ = case_when(
+                                           MaritalStatus == "Divorced" ~ 1,
+                                           MaritalStatus == "Married" ~  2,
+                                           MaritalStatus == "Single" ~ 3),
+                                           MaritalStatus = NULL) %>% rename("MartialStatus" = MartialStatus_)
+
+##Over 18 1 = Yes 2 = No 
+
+attrition_df <-  attrition_df %>% mutate(Over18_ = ifelse( Over18 == "Y",1,0),Over18 = NULL) %>% rename("over18" = Over18_)
+
+##OVERTIME
+
+attrition_df <- attrition_df %>%  mutate(OverTime_ = ifelse(OverTime == "No",1,0 ),OverTime= NULL) %>% rename("overTime" = OverTime_)
+
+##EDUCATION FIELD
+
+attrition_df <- attrition_df %>% mutate(EducationFiled_ = case_when(
+                                                   EducationField == "Human Resources" ~ 1,
+                                                   EducationField == "Life Sciences" ~2,
+                                                   EducationField == "Marketing" ~3,
+                                                   EducationField == "Medical" ~ 4,
+                                                   EducationField == "Other" ~5,
+                                                   EducationField == "Technical Degree" ~ 6),EducationField = NULL) %>% 
+                                                   rename("EducationFiled" = EducationFiled_)
+write_to_df()
+
+levels(attrition_df$EducationField)
 
 
 
+##JOB ROLE
+attrition_df <- attrition_df %>% mutate(JobRole_ = case_when(
+                                                    JobRole == "Healthcare Representative" ~ 1,
+                                                    JobRole == "Human Resources" ~ 2,
+                                                    JobRole == "Laboratory Technician" ~ 3,
+                                                    JobRole == "Manager" ~4,
+                                                    JobRole == "Manufacturing Director" ~ 5,
+                                                    JobRole == "Research Director" ~ 6,
+                                                    JobRole == "Research Scientist" ~ 7, 
+                                                    JobRole == "Sales Executive" ~ 8,
+                                                    JobRole == "Sales Representative" ~ 9),JobRole = NULL) %>% 
+                                                    rename("JobRole" = JobRole_)
 
-
-
-
-
+write_to_df()
+glimpse(attrition_df)
 
 
 
