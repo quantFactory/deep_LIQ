@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Nov 16 22:49:42 2018
+Created on Sat Nov 17 22:24:36 2018
 
 @author: ali
 """
+
 from keras.models import Sequential
 from keras.layers import Dense,Activation
 from keras.wrappers.scikit_learn import KerasClassifier
@@ -14,6 +15,11 @@ from sklearn.model_selection import StratifiedKFold
 from sklearn.pipeline import Pipeline
 import numpy
 from pandas import read_csv
+from tensorflow.python.client import device_lib
+print(device_lib.list_local_devices())
+from keras import backend as K
+K.tensorflow_backend._get_available_gpus()
+
 
 seed = 777
 numpy.random.seed(seed)
@@ -30,20 +36,19 @@ encoder = LabelEncoder()
 encoder.fit(Y)
 encoded_Y = encoder.transform(Y)
 
-##baseline
 def create_baseline():
      model= Sequential()
      model.add(Dense(35, input_dim = 35, kernel_initializer="normal", activation='relu'))
-     model.add(Dense(20,activation='softmax'))
-     model.add(Dense(1, kernel_initializer= "normal", activation='relu'))
+     model.add(Dense(35,activation='softmax'))
+     model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = 'binary_crossentropy',optimizer = 'adam',metrics=['accuracy'])
      return model
 
 ##estiamtor      
 
-estimator = KerasClassifier(build_fn =create_baseline, epochs=20,batch_size=5,verbose=1)
+estimator = KerasClassifier(build_fn =create_baseline, epochs=30,batch_size=5,verbose=1)
 
-kfold = StratifiedKFold(n_splits=20, shuffle=True, random_state=seed)
+kfold = StratifiedKFold(n_splits=5, shuffle=True, random_state=seed)
 
 results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
 
