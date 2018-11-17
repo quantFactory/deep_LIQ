@@ -33,8 +33,8 @@ encoded_Y = encoder.transform(Y)
 
 def create_baseline():
      model= Sequential()
-     model.add(Dense(60, input_dim = 35, kernel_initializer="normal", activation='relu'))
-     model.add(Dense(units=20, activation='softmax'))
+     model.add(Dense(35, input_dim = 35, kernel_initializer="normal", activation='relu'))
+     model.add(Dense(20,activation='softmax'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = 'binary_crossentropy',optimizer = 'adam',metrics=['accuracy'])
      return model
