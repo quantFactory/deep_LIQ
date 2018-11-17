@@ -4,6 +4,7 @@ library(dplyr)
 
 attrition_df<-  read.csv("F://deepLearning/ibm-hr-analytics-employee-attrition-performance/Attrition.csv")
 write.csv(attrition_df,file = "F://deepLearning/attrition_df_r.csv")
+
 glimpse(attrition_df)
 
 
@@ -39,16 +40,21 @@ attrition_df <-  attrition_df %>% mutate(Department_ = case_when(
 
 attrition_df[["Department"]] <- NULL
 names(attrition_df)[35]  <- "Department"
-str(attrition_df2)
+str(attrition_df)
 
-##Gender
+# ##Gender
+# 
+# attrition_df2 <- attrition_df %>% mutate(Gender_  = case_when(
+#                                                    Gender == "Male" ~ 1,  
+#                                                    Gender == "Female" ~2),Gender = NULL) %>% rename("Gender" = Gender_)
 
-attrition_df2 <- attrition_df %>% mutate(Gender_  = case_when(
-                                                   Gender == "Male" ~ 1,  
-                                                   Gender == "Female" ~2),Gender = NULL) %>% rename("Gender" = Gender_)
+##Gender attrion_df 
 
+attrition_df <- attrition_df %>% mutate(Gender_  = case_when(
+                                        Gender == "Male" ~ 1,  
+                                        Gender == "Female" ~2),Gender = NULL) %>% rename("Gender" = Gender_)
 
-
+##
 
 
 
