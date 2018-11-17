@@ -37,9 +37,16 @@ attrition_df <-  attrition_df %>% mutate(Department_ = case_when(
                                                         Department == "Sales" ~ 3))
 
 
-str(attrition_df)
+attrition_df[["Department"]] <- NULL
+names(attrition_df)[35]  <- "Department"
+str(attrition_df2)
 
-attrition_df$Department
+##Gender
+
+attrition_df2 <- attrition_df %>% mutate(Gender_  = case_when(
+                                                   Gender == "Male" ~ 1,  
+                                                   Gender == "Female" ~2),Gender = NULL) %>% rename("Gender" = Gender_)
+
 
 
 
