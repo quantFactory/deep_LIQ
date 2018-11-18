@@ -20,8 +20,18 @@ print(device_lib.list_local_devices())
 from keras import backend as K
 K.tensorflow_backend._get_available_gpus()
 
+_seed = 777
+_input_dim = 35
+kernel_init = "normal"
+activation_fun = 'relu'
+_loss = 'binray_crossentropy'
+_optimizer = 'adam'
+_metrics  = 'accuracy' 
 
-seed = 777
+
+
+
+
 numpy.random.seed(seed)
 
 training_X = read_csv("F://deepLearning/DL_Proj_dataset/attrition.csv")
@@ -39,7 +49,7 @@ encoded_Y = encoder.transform(Y)
 def create_baseline():
      model= Sequential()
      model.add(Dense(35, input_dim = 35, kernel_initializer="normal", activation='relu'))
-     model.add(Dense(35,activation='softmax'))
+     model.add(Dense(35,activation='sigmoid'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = 'binary_crossentropy',optimizer = 'adam',metrics=['accuracy'])
      return model
