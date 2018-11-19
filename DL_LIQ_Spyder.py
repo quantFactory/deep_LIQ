@@ -51,14 +51,14 @@ encoded_Y = encoder.transform(Y)
 def create_baseline():
      model= Sequential()
      model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
-     model.add(Dense(18,activation='softmax'))
+  #   model.add(Dense(18,activation='softmax'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      return model
 
 ##estiamtor      
 
-estimator = KerasClassifier(build_fn =create_baseline, epochs=20,batch_size=5,verbose=1)
+estimator = KerasClassifier(build_fn =create_baseline, epochs=100,batch_size=5,verbose=1)
 
 kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
 
