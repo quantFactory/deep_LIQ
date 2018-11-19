@@ -16,18 +16,23 @@ import numpy
 from pandas import read_csv
 import os 
 
-
-
-
-
 path_ = os.getcwd()
 print(path_)
 
 
-
-
-
 seed = 777
+_input_dim = 35
+kernel_init = "normal"
+activation_fun = 'relu'
+_loss = 'binary_crossentropy'
+_optimizer = 'adam'
+_metrics  = 'accuracy' 
+
+
+
+
+
+
 numpy.random.seed(seed)
 
 training_X = read_csv("./attrition.csv")
@@ -35,8 +40,8 @@ training_X.shape
 training_X_ds = training_X.values
 training_X
 
-X =  training_X_ds[:,0:33].astype(float)
-Y =  training_X_ds[:,33]
+X =  training_X_ds[:,0:35].astype(float)
+Y =  training_X_ds[:,35]
 
 encoder = LabelEncoder()
 encoder.fit(Y)
@@ -45,10 +50,10 @@ encoded_Y = encoder.transform(Y)
 ##baseline
 def create_baseline():
      model= Sequential()
-     model.add(Dense(33, input_dim = 33, kernel_initializer="normal", activation='relu'))
+     model.add(Dense(35, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))
      model.add(Dense(20,activation='softmax'))
      model.add(Dense(1, kernel_initializer= "normal", activation='relu'))
-     model.compile(loss = 'binary_crossentropy',optimizer = 'adam',metrics=['accuracy'])
+     model.compile(loss = _loss,optimizer = 'adam',metrics=['accuracy'])
      return model
 
 ##estiamtor      
