@@ -24,3 +24,5 @@ target variable is "Attrition" = 0,1
 
 
 It is a HR analytics dataset that predicts employee attrition. 
+
+**4. Documentation file will be added at later stage. 
