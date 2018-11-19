@@ -4,7 +4,7 @@ Attrition analytics _ deep learning project
 This repo contains 3 files 
 
 1- deep_liq.R 
-R have been used a a programming language of choice for data manipulation and dataset porep processing. 
+R have been used a a programming language of choice for data manipulation and dataset pre-processing. 
 
 2- DL_LIQ_Spyder.py
 
