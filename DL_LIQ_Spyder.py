@@ -38,7 +38,7 @@ training_X
 
 # training and test set detemination
 X =  training_X_ds[:,0:31].astype(float)
-Y =  training_X_ds[:,29]
+Y =  training_X_ds[:,31]
 
 print(Y)
 
@@ -64,6 +64,6 @@ kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
 
 results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
 
-print("baseline: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
+print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
 
