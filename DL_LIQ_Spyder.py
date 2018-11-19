@@ -21,25 +21,26 @@ print(path_)
 
 
 seed = 777
-_input_dim = 35
+_input_dim = 31
 kernel_init = "normal"
 activation_fun = 'relu'
 _loss = 'binary_crossentropy'
 _optimizer = 'adam'
 _metrics  = 'accuracy' 
-optimizer_ = 'adam'
 
 
 numpy.random.seed(seed)
 #reading data
-training_X = read_csv("./data/attrition.csv")
+training_X = read_csv("./data/attrition2.csv")
 training_X.shape
 training_X_ds = training_X.values
 training_X
 
 # training and test set detemination
-X =  training_X_ds[:,0:35].astype(float)
-Y =  training_X_ds[:,35]
+X =  training_X_ds[:,0:31].astype(float)
+Y =  training_X_ds[:,29]
+
+print(Y)
 
 encoder = LabelEncoder()
 encoder.fit(Y)
@@ -49,17 +50,17 @@ encoded_Y = encoder.transform(Y)
 ##training deep feed forward 
 def create_baseline():
      model= Sequential()
-     model.add(Dense(35, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
+     model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
      model.add(Dense(18,activation='softmax'))
-     model.add(Dense(1, kernel_initializer= "normal", activation='relu'))
-     model.compile(loss = _loss,optimizer = optimizer_ ,metrics=['accuracy'])
+     model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
+     model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      return model
 
 ##estiamtor      
 
 estimator = KerasClassifier(build_fn =create_baseline, epochs=20,batch_size=5,verbose=1)
 
-kfold = StratifiedKFold(n_splits=20, shuffle=True, random_state=seed)
+kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
 
 results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
 
