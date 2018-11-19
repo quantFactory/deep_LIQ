@@ -11,7 +11,7 @@ R have been used a a programming language of choice for data manipulation and da
 Deep learning model written in Keras using TensorFlow as backend and has been configured to use GPU cores. 
 currently the number of epochs is set to 20 because the system that processes the model uses a single GTX 960 Nvidia card
 Better accuracy results will achieve if epoches = 200. which demands more time to process on current hardware.
-** Confusion matrix will be added to model 
+** Confusion matrix will be added to model.
 Prediction method : binary classification
 
 
