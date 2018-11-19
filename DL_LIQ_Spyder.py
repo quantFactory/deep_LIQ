@@ -35,7 +35,7 @@ _metrics  = 'accuracy'
 
 numpy.random.seed(seed)
 
-training_X = read_csv("./attrition.csv")
+training_X = read_csv("./data/attrition.csv")
 training_X.shape
 training_X_ds = training_X.values
 training_X
