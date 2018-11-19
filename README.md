@@ -18,6 +18,7 @@ Prediction method : binary classification
 3- dataset 
 dataset called attrition.csv which resides in data folder
 Data source: https://www.kaggle.com/pavansubhasht/ibm-hr-analytics-attrition-dataset.)
+(attrition2) dataset is added with some minot chages for testing purposes. 
 
 dataset dimension:  35 *1470 
 target variable is "Attrition" = 0,1
