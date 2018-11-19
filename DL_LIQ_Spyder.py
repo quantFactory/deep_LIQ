@@ -50,7 +50,7 @@ def create_baseline():
      model= Sequential()
      model.add(Dense(35, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))
      model.add(Dense(35,activation='softmax'))
-     model.add(Dense(17,activation='softmax'))
+     model.add(Dense(35,activation='softmax'))
      model.add(Dense(1, kernel_initializer= "normal", activation='relu'))
      model.compile(loss = _loss,optimizer = 'adam',metrics=['accuracy'])
      return model
