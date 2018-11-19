@@ -30,16 +30,14 @@ _metrics  = 'accuracy'
 
 
 
-
-
-
 numpy.random.seed(seed)
-
+#reading data
 training_X = read_csv("./data/attrition.csv")
 training_X.shape
 training_X_ds = training_X.values
 training_X
 
+# training and test set detemination
 X =  training_X_ds[:,0:35].astype(float)
 Y =  training_X_ds[:,35]
 
