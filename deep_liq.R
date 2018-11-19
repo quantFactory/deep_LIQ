@@ -7,6 +7,7 @@ library(dplyr)
 attrition_df<-  read.csv("F://deepLearning/DL_Proj_dataset/attrition_bc.csv")
 
 write_to_df <- function(){
+  
 write.csv(attrition_df,file = "F://deepLearning/DL_Proj_dataset/attrition.csv")
 }
 
@@ -113,5 +114,20 @@ attrition_df <- attrition_df %>% mutate(JobRole_ = case_when(
 write_to_df()
 glimpse(attrition_df)
 
+
+
+## feature scaling test
+## readning the attrition file and save to attrition_feature 
+## delkte solumns with big numbers 
+
+
+attrition_scale<-  read.csv("F://deepLearning/DL_Proj_dataset/attrition.csv")
+
+write.csv(attrition_scale,file = "F://deepLearning/DL_Proj_dataset/attrition_scale.csv")
+
+attrition_scale <-  subset(attrition_scale, select = -c(attrition_scale$MonthlyIncome,attrition_scale$MonthlyRate,attrition_scale$DailyRate))
+
+attrition_scale = attrition_scale %>% select(-MonthlyIncome,-MonthlyRate,-DailyRate)
+str(attrition_scale)
 
 
