@@ -49,9 +49,8 @@ encoded_Y = encoder.transform(Y)
 ##training deep feed forward 
 def create_baseline():
      model= Sequential()
-     model.add(Dense(35, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))
-     model.add(Dense(60,activation='sigmoid'))
-     model.add(Dense(35,activation='sigmoid'))
+     model.add(Dense(35, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
+     model.add(Dense(18,activation='softmax'))
      model.add(Dense(1, kernel_initializer= "normal", activation='relu'))
      model.compile(loss = _loss,optimizer = optimizer_ ,metrics=['accuracy'])
      return model
