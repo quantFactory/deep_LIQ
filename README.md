@@ -1,4 +1,4 @@
-# deep_LIQ
+# Attrition_LIQ
 Attrition analytics _ deep learning project
 
 This repo contains the following files:
