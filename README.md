@@ -1,4 +1,4 @@
-# Attrition
+# Attrition prediction
 Attrition analytics _ deep learning project
 
 This repo contains the following files:
