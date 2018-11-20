@@ -4,6 +4,10 @@ Created on Fri Nov 16 22:49:42 2018
 
 @author: ali
 """
+
+
+import pickable
+import pickle
 from keras.models import Sequential
 from keras.layers import Dense,Activation
 from keras.wrappers.scikit_learn import KerasClassifier
@@ -16,12 +20,14 @@ import numpy
 from pandas import read_csv
 import os 
 
+
+
 path_ = os.getcwd()
 print(path_)
 
 
 seed = 777
-_input_dim = 31
+input_dim = 31
 kernel_init = "normal"
 activation_fun = 'relu'
 _loss = 'binary_crossentropy'
@@ -35,6 +41,9 @@ training_X = read_csv("./data/attrition2.csv")
 training_X.shape
 training_X_ds = training_X.values
 training_X
+
+
+list(training_X.columns)
 
 # training and test set detemination
 X =  training_X_ds[:,0:31].astype(float)
@@ -51,10 +60,16 @@ encoded_Y = encoder.transform(Y)
 def create_baseline():
      model= Sequential()
      model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
-     #model.add(Dense(18,activation='sigmoid'))
+     model.add(Dense(16,activation='sigmoid'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      return model
+
+pickable.make_keras_picklable
+
+pickle.dumps(create_baseline)
+#
+
 
 ##estiamtor      
 
@@ -67,3 +82,6 @@ results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
 print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
 
+
+
+    
