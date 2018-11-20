@@ -27,7 +27,7 @@ print(path_)
 
 
 seed = 777
-input_dim = 31
+_input_dim = 31
 kernel_init = "normal"
 activation_fun = 'relu'
 _loss = 'binary_crossentropy'
