@@ -6,8 +6,17 @@ Created on Sun Nov 18 11:57:31 2018
 """
 import pickle
 from flask import Flask, request
-from flasgger import Swagger
 import numpy as np
-import pandas an pd 
+import pandas as pd
+
+##create an app from that Flask
+app = Flask(__name__)
+
+@app.route('/')
+
+def deepApi():
+    return "Insert variables amounts!"
+
+app.run(port=4999)
 
 
