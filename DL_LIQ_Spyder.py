@@ -21,10 +21,8 @@ import pandas as pd
 import os 
 
 
-
 path_ = os.getcwd()
 print(path_)
-
 
 seed = 777
 _input_dim = 31
@@ -33,7 +31,6 @@ activation_fun = 'relu'
 _loss = 'binary_crossentropy'
 _optimizer = 'adam'
 _metrics  = 'accuracy' 
-
 
 np.random.seed(seed)
 #reading data
@@ -67,13 +64,7 @@ def create_baseline():
      return model
 
 
-#pickling 
-
-
-
-
 ##estiamtor      
-
 estimator = KerasClassifier(build_fn =create_baseline, epochs=10,batch_size=5,verbose=1)
 
 kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
@@ -82,6 +73,7 @@ results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
 
 print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
+#saving model (josn and model weights)
 model = create_baseline()
 model_json = model.to_json()
 with open("att_model.json","w") as json_file:
