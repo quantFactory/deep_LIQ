@@ -4,10 +4,6 @@ Created on Fri Nov 16 22:49:42 2018
 
 @author: ali
 """
-
-
-import pickable
-import pickle
 from keras.models import Sequential
 from keras.layers import Dense,Activation
 from keras.wrappers.scikit_learn import KerasClassifier
