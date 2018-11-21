@@ -6,7 +6,7 @@ This repo contains the following files:
 ### 1- deep_liq.R 
 R have been used a a programming language of choice for data manipulation and dataset pre-processing. 
 
-### 2- DL_LIQ_Spyder.py
+#### 2- DL_LIQ_Spyder.py
 
 Deep learning model written in Keras using TensorFlow as backend and has been configured to use GPU cores. 
 currently the number of epochs is set to 20 because the system that processes the model uses a single GTX 960 Nvidia card
