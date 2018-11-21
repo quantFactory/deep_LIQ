@@ -16,8 +16,8 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import StratifiedKFold
 from sklearn.pipeline import Pipeline
-import numpy
-from pandas import read_csv
+import numpy as np 
+import pandas as pd  
 import os 
 
 
@@ -35,9 +35,9 @@ _optimizer = 'adam'
 _metrics  = 'accuracy' 
 
 
-numpy.random.seed(seed)
+np.random.seed(seed)
 #reading data
-training_X = read_csv("./data/attrition2.csv")
+training_X = pd.read_csv("./data/attrition2.csv")
 training_X.shape
 training_X_ds = training_X.values
 training_X
@@ -65,11 +65,12 @@ def create_baseline():
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      return model
 
-pickable.make_keras_picklable
 
+#pickling 
 pickle.dumps(create_baseline)
-#
 
+with open("./Dl_Model.pkl",'wb') as model_pkl:
+ pickle.dump(create_baseline,model_pkl)
 
 ##estiamtor      
 
