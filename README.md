@@ -23,7 +23,9 @@ Data source: https://www.kaggle.com/pavansubhasht/ibm-hr-analytics-attrition-dat
 dataset dimension:  35 *1470 
 target variable is "Attrition" = 0,1
 
+4- models folder
+include Keras models files 
 
 It is a HR analytics dataset that predicts employee attrition. 
 
-**4. Documentation file will be added at later stage. 
+ **Documentation file will be added at later stage. 
