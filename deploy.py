@@ -14,8 +14,6 @@ import flask
 import numpy as np 
 from keras.backend import clear_session
 
-
-
 #loading model 
 model_ = load_model("./models/pre_trained_subset.h5")
 graph = tf.get_default_graph()     
@@ -32,7 +30,6 @@ model_.summary()
 # 
 # =============================================================================
 
-
 app = flask.Flask(__name__)
 @app.route("/", methods=['GET','POST'])    
 def indexx():
@@ -41,10 +38,8 @@ def indexx():
         Age =  request.args.get("Age")
         MartialStatus=  request.args.get("MartialStatus")
         Gender =  request.args.get("Gender")
-        prediction = model_.predict(np.array([[Age,MartialStatus,Gender]]))          
-        
+        prediction = model_.predict(np.array([[Age,MartialStatus,Gender]]))                  
         return str(prediction)
     
-
 if __name__  ==  "__main__":
     app.run()
