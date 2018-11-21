@@ -63,6 +63,7 @@ def create_baseline():
      model.add(Dense(16,activation='sigmoid'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
+     model.fit(X,encode_Y)    
      return model
 
 pickable.make_keras_picklable
@@ -81,7 +82,10 @@ results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
 
 print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
-
+model = create_baseline()
+model_json = model.to_json()
+with open("att_model.json","w") as json_file:
+     json_file.write(model_json)
 
 
     
