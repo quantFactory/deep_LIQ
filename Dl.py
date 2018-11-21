@@ -75,7 +75,7 @@ results = cross_val_score(estimator, X, encoded_Y, cv=kfold)
     
 print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
-mode = create_baseline()
+model = create_baseline()
 model_json = model.to_json()
 with open("att_model.json","w") as json_file:
      json_file.write("att_josn")
@@ -84,5 +84,5 @@ with open("att_model.json","w") as json_file:
 model.save_weights("attr_model_weights.h5")
 print("Saved model to disk")
      
-     
-     
+model.save("./models/pre_trained.h5")
+

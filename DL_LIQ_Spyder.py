@@ -56,7 +56,7 @@ def create_baseline():
      model.add(Dense(16,activation='sigmoid'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
-     model.fit(X,encode_Y)    
+     model.fit(X,encoded_Y)    
      return model
 
 
