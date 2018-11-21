@@ -70,8 +70,7 @@ def create_baseline():
 #pickling 
 
 
-with open("./Dl_Model.pkl",'wb') as model_pkl:
- pickle.dump(create_baseline,model_pkl)
+
 
 ##estiamtor      
 
