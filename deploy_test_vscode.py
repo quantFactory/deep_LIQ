@@ -12,7 +12,6 @@ from flask import Flask, request
 import tensorflow as tf
 import flask
 import numpy as np 
-from numpy import array
 from keras.backend import clear_session
 
 #loading model 
@@ -20,20 +19,21 @@ model_ = load_model("./models/pre_trained_subset.h5")
 graph = tf.get_default_graph()     
 model_.summary()
 
-x=1
-Age = 30 
-MartialStatus = 1 
-Gender =2 
-'''
+
+
+
+  
+  x=1
+  Age = 30 
+  MartialStatus = 1 
+  Gender =2 
   xx = np.array([[Age,MartialStatus,Gender]])
+  model_.predic
+  '''
+  
   pre = model_.predict(xx)
   pre
   '''
-
-Xnew = array([[41,3,2]])
-Attrition_predict = model_.predict_classes(Xnew)
-Attrition_predict
-
 
 
 app = flask.Flask(__name__)
@@ -44,7 +44,7 @@ def indexx():
         Age =  request.args.get("Age")
         MartialStatus=  request.args.get("MartialStatus")
         Gender =  request.args.get("Gender")
-        prediction = model_.predict_classes(np.array([[Age,MartialStatus,Gender]]))                  
+        prediction = model_.predict(np.array([[Age,MartialStatus,Gender]]))                  
         return str(prediction)
     
 if __name__  ==  "__main__":
