@@ -29,13 +29,13 @@ Gender =2
   pre = model_.predict(xx)
   pre
   '''
-
+#testing model prediction 
 Xnew = array([[41,3,2]])
 Attrition_predict = model_.predict_classes(Xnew)
 Attrition_predict
 
 
-
+#running flask app 
 app = flask.Flask(__name__)
 @app.route("/", methods=['GET','POST'])    
 def indexx():
