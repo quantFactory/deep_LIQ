@@ -28,7 +28,7 @@ print(path_)
 seed = 10
 _input_dim = 31
 kernel_init = "normal"
-activation_fun = 'relu'
+activation_fun = 'sigmoid'
 _loss = 'binary_crossentropy'
 _optimizer = 'adam'
 _metrics  = 'accuracy' 
@@ -59,9 +59,9 @@ encoded_Y = encoder.transform(Y)
 def create_baseline():
      model= Sequential()
      model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
-     model.add(Dense(16,activation='sigmoid'))
+     model.add(Dense(16,activation='relu'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
-     model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
+     model.compile(loss = _loss,optimizer = 'rmsprop' ,metrics=['accuracy'])
      model.fit(X,encoded_Y)
      return model
 
