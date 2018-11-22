@@ -20,7 +20,7 @@ import os
 path_ = os.getcwd()
 print(path_)
 
-seed = 777
+seed = 99
 _input_dim = 31
 kernel_init = "normal"
 activation_fun = 'relu'
@@ -40,7 +40,7 @@ list(training_X.columns)
 
 # training and test set detemination
 X =  training_X_ds[:,0:31].astype(float)
-Y =  training_X_ds[:,31]
+    Y =  training_X_ds[:,31]
 
 print(Y)
 
@@ -56,12 +56,14 @@ def create_baseline():
      model.add(Dense(16,activation='sigmoid'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
-     model.fit(X,encoded_Y)    
+     model.fit(X,encoded_Y,batch_size = 5 , epochs =11,shuffle=True)    
      return model
 
 
 ##estiamtor      
-estimator = KerasClassifier(build_fn =create_baseline, epochs=10,batch_size=5,verbose=1)
+
+
+estimator = KerasClassifier(build_fn =create_baseline, epochs=10,batch_size=5,verbose=2)
 
 kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
 
@@ -75,5 +77,3 @@ model_json = model.to_json()
 with open("att_model.json","w") as json_file:
      json_file.write(model_json)
 
-
-    

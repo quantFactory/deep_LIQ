@@ -29,9 +29,13 @@ Gender =2
   pre = model_.predict(xx)
   pre
   '''
+  
+  
+  
+  
 #testing model prediction 
-Xnew = array([[41,3,2]])
-Attrition_predict = model_.predict_classes(Xnew)
+Xnew = array([[48,1,1]])
+Attrition_predict = model_.predict(Xnew)
 Attrition_predict
 
 
@@ -44,7 +48,8 @@ def indexx():
         Age =  request.args.get("Age")
         MartialStatus=  request.args.get("MartialStatus")
         Gender =  request.args.get("Gender")
-        prediction = model_.predict_classes(np.array([[Age,MartialStatus,Gender]]))                  
+        #prediction = model_.predict_classes(np.array([[Age,MartialStatus,Gender]]))                  
+        predict_probability = prediction = model_.predict_proba(np.array([[Age,MartialStatus,Gender]]))                  
         return str(prediction)
     
 if __name__  ==  "__main__":
