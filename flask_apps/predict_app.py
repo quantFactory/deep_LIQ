@@ -18,44 +18,27 @@ import json
 
 
 #loading model 
-model_ = load_model("./atr_subset.h5")
+model_ = load_model("../models/pre_trained.h5")
 graph = tf.get_default_graph()     
 model_.summary()
 
-x=1
-Age = 30 
-MartialStatus = 1 
-Gender =2 
 
 #testing model prediction 
-Xnew = array([[48,1,1]])
-Attrition_predict = model_.predict(Xnew)
+input_ = pd.read_csv("../employeeDetails/emp_5.csv")
+Attrition_predict = model_.predict_classes(input_)
 Attrition_predict
-
-input_ = pd.read_csv("../input.csv")
 pr = model_.predict_proba(input_)
 pr
-type(pr)
-pr_list = pr.tolist()
-type(pr_list)
-json_result = json.dumps(pr_list)
-json_result
-type(json_result)
 
-    
+
 #running flask app 
 app = flask.Flask(__name__)
 @app.route("/", methods=['GET','POST'])
 def index():
     global graph
     with graph.as_default():
-        csv_file = request.get_json(force = True)
-                 
-        csv = pd.read_csv(request.files.get("input"))
-        proba = model_.predict_proba(csv)
-        proba_as_list = proba.tolist()
-        json_proba = json.dumps(proba_as_list) 
-        return (json_proba)
+        str = "test"
+        return (str)
   
 
 @app.route("/predict", methods=['GET','POST'])    

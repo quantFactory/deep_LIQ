@@ -77,7 +77,7 @@ def create_baseline():
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      #model.fit(X,Y,validation_data=(X,Y),validation_split=0.75,shuffle= True,verbose=2,batch_size=100,epochs=50)
      model.fit(X,Y)
-     
+     model.save("./models/pre_trained.h5")
      return model
 
 estimators = []    
@@ -91,7 +91,7 @@ results = cross_val_score(pipline, X, Y, cv= kfold)
 print("Accuracy: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
 #model = create_baseline()
-model.save("./models/pre_trained.h5")
+#model.save("./models/pre_trained.h5")
 print("model saved to disk")
 
 
