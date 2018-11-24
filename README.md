@@ -24,39 +24,39 @@ Folder PATH listing
 Volume serial number is B87E-897C
 C:.
 | 
-|   att_predict.py
-|   deep_liq.R
-|   hr.doc
-|   README.md
+|   att_predict.py  
+|   deep_liq.R  
+|   hr.doc  
+|   README.md  
 |   
-+---api
-+---data
-|       attr.csv
++---api  
++---data  
+|       attr.csv  
 |       
-+---employeeDetails
-|       emp_1.csv
-|       emp_2.csv
-|       emp_3.csv
-|       emp_4.csv
-|       emp_5.csv
++---employeeDetails  
+|       emp_1.csv  
+|       emp_2.csv  
+|       emp_3.csv  
+|       emp_4.csv  
+|       emp_5.csv  
 |       
-+---flask_apps
-|   |   dl.png
-|   |   predict_app.py
++---flask_apps  
+|   |   dl.png  
+|   |   predict_app.py  
 |   |   
-|   \---static
-|       |   hello.html
-|       |   hello2.html
-|       |   j.js
-|       |   predict.html
+|   \---static  
+|       |   hello.html  
+|       |   hello2.html  
+|       |   j.js  
+|       |   predict.html  
 |       |   
-|       \---predict_file
-+---models
-|       pre_trained.h5
+|       \---predict_file  
++---models  
+|       pre_trained.h5  
 |       
-\---__pycache__
-        DL_LIQ_Spyder.cpython-36.pyc
-        pickable.cpython-36.pyc
+\---__pycache__  
+        DL_LIQ_Spyder.cpython-36.pyc  
+        pickable.cpython-36.pyc  
 
 
  
