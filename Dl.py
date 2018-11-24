@@ -61,13 +61,13 @@ def create_baseline():
      model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init, activation=activation_fun))     
      model.add(Dense(16,activation='relu'))
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
-     model.compile(loss = _loss,optimizer = 'rmsprop' ,metrics=['accuracy'])
+     model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      model.fit(X,encoded_Y)
      return model
 
     
    
-estimator = KerasClassifier(build_fn =create_baseline, epochs=10,batch_size=5,verbose=1)
+estimator = KerasClassifier(build_fn =create_baseline, epochs=10,batch_size=5,verbose=2)
     
 kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
     
@@ -83,6 +83,5 @@ with open("att_model.json","w") as json_file:
     
 model.save_weights("attr_model_weights.h5")
 print("Saved model to disk")
-     
 model.save("./models/pre_trained.h5")
 

@@ -4,19 +4,19 @@ Created on Wed Nov 21 19:48:03 2018
 
 @author: ali
 """
-import keras
+
 from keras.models import load_model
-import h5py
 from keras.models import print_function
 from flask import Flask, request
 import tensorflow as tf
 import flask
 import numpy as np 
 from numpy import array
-from keras.backend import clear_session
 import pandas as pd 
 from flask import jsonify
 import json
+
+
 #loading model 
 model_ = load_model("./atr_subset.h5")
 graph = tf.get_default_graph()     
@@ -45,10 +45,12 @@ type(json_result)
     
 #running flask app 
 app = flask.Flask(__name__)
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['GET','POST'])
 def index():
     global graph
     with graph.as_default():
+        csv_file = request.get_json(force = True)
+                 
         csv = pd.read_csv(request.files.get("input"))
         proba = model_.predict_proba(csv)
         proba_as_list = proba.tolist()
@@ -60,10 +62,23 @@ def index():
 def predict():
     global graph
     with graph.as_default():        
-        input_data = pd.read_csv(request.files.get("input_file"))        
-        predicted_probability = model_.predict_proba(input_data)
-        
-        return str(predicted_probability)
+        csv = pd.read_csv(request.files.get("input"))
+        proba = model_.predict_proba(csv)
+        proba_as_list = proba.tolist()
+        json_proba = json.dumps(proba_as_list) 
+        return (json_proba)
+    
+@app.route("/hello", methods=['GET','POST'])
+def hellos():
+        global graph
+        with graph.as_default():
+                req_message = request.get.json(force =True)
+                name = req_message['name']
+                response = {
+                        "greeting" : "hello, " + name + "!"                        
+                }
+                return jsonify(response)
+
      
 if __name__  ==  "__main__":
     app.run()
