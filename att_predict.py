@@ -48,17 +48,16 @@ np.random.seed(seed)
 training_X = pd.read_csv("./data/attr.csv")
 training_X.shape
 training_X_ds = training_X.values
-
-
-
 list(training_X.columns)
+
 
 # training and test set detemination
 X =  training_X_ds[:,0:35].astype(float)
 Y =  training_X_ds[:,34]
 
-X
-Y
+
+
+
 '''
 encoder = LabelEncoder()
 encoder.fit(Y)
@@ -66,7 +65,7 @@ encoded_Y = encoder.transform(Y)
 print(encoded_Y)
 '''
 
-
+global model
 ##baseline
 ##training deep feed forward 
 def create_baseline():
@@ -75,8 +74,8 @@ def create_baseline():
      model.add(Dense(16,activation='sigmoid'))     
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
-         model.fit(X,Y,validation_data=(X,Y),validation_split=0.75,shuffle= True,verbose=2,batch_size=100,epochs=50)
-     model.fit(X,Y)
+    # model.fit(X,Y,validation_data=(X,Y),validation_split=0.75,shuffle= True,verbose=2,batch_size=100,epochs=100)
+     #model.fit(X,Y)
      model.save("./models/pre_trained.h5")
      return model
 
@@ -91,7 +90,7 @@ results = cross_val_score(pipline, X, Y, cv= kfold)
 print("Accuracy: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
 #model = create_baseline()
-#model.save("./models/pre_trained.h5")
+model.save("./models/pre_trained.h5")
 print("model saved to disk")
 
     

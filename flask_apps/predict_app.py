@@ -55,7 +55,7 @@ def predict():
 def hellos():
         global graph
         with graph.as_default():
-                req_message = request.get.json(force =True)
+                req_message = request.get_json(force =True)
                 name = req_message['name']
                 response = {
                         "greeting" : "hello, " + name + "!"                        
