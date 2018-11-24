@@ -45,7 +45,7 @@ _metrics  = 'accuracy'
 
 np.random.seed(seed)
 #reading data
-training_X = pd.read_csv("./data/attrition.csv")
+training_X = pd.read_csv("./data/attr.csv")
 training_X.shape
 training_X_ds = training_X.values
 
@@ -54,8 +54,8 @@ training_X_ds = training_X.values
 list(training_X.columns)
 
 # training and test set detemination
-X =  training_X_ds[:,0:35]
-Y =  training_X_ds[:,35]
+X =  training_X_ds[:,0:35].astype(float)
+Y =  training_X_ds[:,34]
 
 X
 Y
@@ -77,7 +77,7 @@ def create_baseline():
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      #model.fit(X,Y,validation_data=(X,Y),validation_split=0.75,shuffle= True,verbose=2,batch_size=100,epochs=50)
      model.fit(X,Y)
-     model.save("./models/pre_trained.h5")
+     
      return model
 
 estimators = []    
@@ -88,9 +88,10 @@ pipline = Pipeline(estimators)
 kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
 results = cross_val_score(pipline, X, Y, cv= kfold)
 
-print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
+print("Accuracy: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
-model = create_baseline()
+#model = create_baseline()
+model.save("./models/pre_trained.h5")
 print("model saved to disk")
 
 
