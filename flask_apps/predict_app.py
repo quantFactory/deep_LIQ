@@ -16,7 +16,7 @@ import pandas as pd
 from flask import jsonify
 import json
 
-
+ 
 #loading model 
 model_ = load_model("../models/pre_trained.h5")
 graph = tf.get_default_graph()     
