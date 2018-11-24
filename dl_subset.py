@@ -26,7 +26,7 @@ from sklearn.pipeline import Pipeline
 import numpy as np 
 import pandas as pd  
 import os 
-import json
+
 
 
 
@@ -35,7 +35,7 @@ print(path_)
 
 
 seed = 10
-_input_dim = 3
+_input_dim = 35
 kernel_init = "normal"
 activation_fun = 'tanh'
 _loss = 'binary_crossentropy'
@@ -45,7 +45,7 @@ _metrics  = 'accuracy'
 
 np.random.seed(seed)
 #reading data
-training_X = pd.read_csv("./data/attr_subset2.csv")
+training_X = pd.read_csv("./data/attrition.csv")
 training_X.shape
 training_X_ds = training_X.values
 
@@ -54,8 +54,8 @@ training_X_ds = training_X.values
 list(training_X.columns)
 
 # training and test set detemination
-X =  training_X_ds[:,0:3].astype(float)
-Y =  training_X_ds[:,3]
+X =  training_X_ds[:,0:35]
+Y =  training_X_ds[:,35]
 
 X
 Y
@@ -71,26 +71,26 @@ print(encoded_Y)
 ##training deep feed forward 
 def create_baseline():
      model= Sequential()
-     model.add(Dense(4, input_dim = _input_dim, kernel_initializer= kernel_init,activation = 'relu'))     
-     model.add(Dense(6,activation='sigmoid'))     
+     model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init,activation = 'relu'))     
+     model.add(Dense(16,activation='sigmoid'))     
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
      #model.fit(X,Y,validation_data=(X,Y),validation_split=0.75,shuffle= True,verbose=2,batch_size=100,epochs=50)
      model.fit(X,Y)
-     model.save("./models/pre_trained_in.h5")
+     model.save("./models/pre_trained.h5")
      return model
 
 estimators = []    
 estimators.append(('standardize', StandardScaler()))
-estimators.append(('mlp', KerasClassifier(build_fn = create_baseline,shuffle= True,verbose=1,batch_size=100,epochs=250)))
+estimators.append(('mlp', KerasClassifier(build_fn = create_baseline,shuffle= True,verbose=1,batch_size=100,epochs=100)))
 pipline = Pipeline(estimators)        
 #estimator = KerasClassifier(build_fn =create_baseline)    
-kfold = StratifiedKFold(n_splits =3, shuffle=False, random_state=seed)
+kfold = StratifiedKFold(n_splits =10, shuffle=True, random_state=seed)
 results = cross_val_score(pipline, X, Y, cv= kfold)
 
 print("ACC: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))
 
-#model = create_baseline()
+model = create_baseline()
 print("model saved to disk")
 
 
