@@ -1,5 +1,22 @@
 ### Attrition prediction
 
+### How to train the model and run the webserver
+
+1-Model training: 
+        To train the model run the att_predict.py in the root folder.
+#### 2-Web service 
+        To run the flask application: 
+•	Install POSTMAN to be able to receive post requests. 
+•	Navigate  and run : flask_apps > predict_app.py
+•	Insert http://127.0.01:500/predict to postman app and choose the method as POST
+•	In the body section of Postman insert “input” as key choose a file from EmployeeDetails folder to see the prediction results. 
+
+
+
+
+
+
+
 #### Data:
 Employee attrition is one the main contributing factors to business disruption cost increase and performance loss of companies. To be able to predict the employee attrition increases HR ability to make decisions and solve the problem on time. Dataset that is used in this project contains the information of survey from IBM indicating whether there is any attrition. In this project employee attrition probability is predicted using deep learning model and binary classification technique.
 
