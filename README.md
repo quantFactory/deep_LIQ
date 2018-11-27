@@ -39,7 +39,8 @@ https://github.com/quantFactory/deep_LIQ.git
 
 #### Project structure: 
 Folder PATH listing
-Volume serial number is B87E-897C
+
+```bash
 C:.
 | 
 |   att_predict.py  
@@ -75,7 +76,7 @@ C:.
 \---__pycache__  
         DL_LIQ_Spyder.cpython-36.pyc  
         pickable.cpython-36.pyc  
-
+```
 
  
 
