@@ -41,7 +41,7 @@ https://github.com/quantFactory/deep_LIQ.git
 Folder PATH listing
 
 ```bash
-C:.
+\
 | 
 |   att_predict.py  
 |   deep_liq.R  
