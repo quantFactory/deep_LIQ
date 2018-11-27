@@ -7,7 +7,7 @@
 #### 2-Web service 
         To run the flask application: 
 •	Install [POSTMAN](https://www.getpostman.com/download?platform=win64) to be able to receive post requests. 
-•	Navigate  and run : flask_apps > predict_app.py
+•	Navigate  and run : flask_apps > predict_app.py.
 •	Insert http://127.0.01:500/predict to postman app and choose the method as POST
 •	In the body section of Postman insert “input” as key choose a file from EmployeeDetails folder to see the prediction results. 
 
