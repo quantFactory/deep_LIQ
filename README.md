@@ -2,7 +2,7 @@
 
 ### How to train the model and run the webserver
 
-####1-Model training: 
+#### 1-Model training: 
         To train the model run the att_predict.py in the root folder.
 #### 2-Web service 
         To run the flask application: 
