@@ -1,4 +1,6 @@
-
+.DS_Store
+__pychache__/
+*.pyc
 untitled0.py
 att_model.json
 attr_model_weights.h5
