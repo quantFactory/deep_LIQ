@@ -68,11 +68,16 @@ print(encoded_Y)
 global model
 ##baseline
 ##training deep feed forward 
+
 def create_baseline():
+    
+    
      model= Sequential()
      model.add(Dense(36, input_dim = _input_dim, kernel_initializer= kernel_init,activation = 'relu'))     
      model.add(Dense(16,activation='sigmoid'))     
      model.add(Dense(1, kernel_initializer= "normal", activation='sigmoid'))
+     
+     
      model.compile(loss = _loss,optimizer = 'adam' ,metrics=['accuracy'])
     # model.fit(X,Y,validation_data=(X,Y),validation_split=0.75,shuffle= True,verbose=2,batch_size=100,epochs=100)
      #model.fit(X,Y)
