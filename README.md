@@ -5,7 +5,7 @@
 #### 1-Model training: 
 Run att_predict.py file  by typing command bellow in windows commandline or Mac/Linux terminal as follows:
            
-           computer:~ User name$ python att_perdict.py
+           computerName:~ Username$ python att_perdict.py
           
      
 #### 2- How to test the API(Flask application)
@@ -19,7 +19,7 @@ Run att_predict.py file  by typing command bellow in windows commandline or Mac/
 #### 3- Run the web servire (Flask application)
 Run prdcit.py file (locate it in flask_app folder) by typing commands bellow in Windows Commandline application or Mac/Linux Terminal application :
 
-                     computer:~ User name$ python perdict.py
+           computerName:~ User name$ python perdict.py
                      
  command above will rund the Flaks webserver.
                   
