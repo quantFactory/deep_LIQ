@@ -19,7 +19,7 @@ Run att_predict.py file by typing command below in Windows commandline applikcat
 #### 3- Run the web servire (Flask application)
 Run prdcit.py file (locate it in flask_app folder) by typing commands below in Windows Commandline application or Mac/Linux Terminal application :
 
-           computerName:~ User name$ python perdict.py
+           computerName:~ Username$ python perdict.py
                      
  command above will runs the Flaks webserver.
                   
