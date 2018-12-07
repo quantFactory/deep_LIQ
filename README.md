@@ -21,7 +21,7 @@ Run prdcit.py file (locate it in flask_app folder) by typing commands bellow in 
 
            computerName:~ User name$ python perdict.py
                      
- command above will rund the Flaks webserver.
+ command above will runs the Flaks webserver.
                   
                     
 
