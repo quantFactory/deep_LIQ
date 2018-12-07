@@ -3,7 +3,9 @@
 ### How to train the model and run the webserver
 
 #### 1-Model training: 
-        To train the model run the att_predict.py in the root folder.
+Run predict.py file in windows commandline or Mac/Linux terminal as fllows:
+           computer:~ User name$ python perdict.py
+     
 #### 2- How to test the API(Flask application)
         
 *	Install [POSTMAN](https://www.getpostman.com/download?platform=win64) to be able to receive post requests. 
