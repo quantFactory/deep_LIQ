@@ -4,7 +4,9 @@
 
 #### 1-Model training: 
 Run predict.py file in windows commandline or Mac/Linux terminal as fllows:
+           
            computer:~ User name$ python perdict.py
+          
      
 #### 2- How to test the API(Flask application)
         
@@ -14,11 +16,10 @@ Run predict.py file in windows commandline or Mac/Linux terminal as fllows:
 *	In the body section of Postman insert “input” as key choose a file from EmployeeDetails folder to see the prediction results. 
 
 
-#### 3- Steps to run Heroku app 
-```
-to be added soon ...
-
-```
+#### 3- Run the web servire (Flask application)
+           ,,,
+           code here...
+           ,,,
 
 #### Data:
 Employee attrition is one the main contributing factors to business disruption cost increase and performance loss of companies. To be able to predict the employee attrition increases HR ability to make decisions and solve the problem on time. Dataset that is used in this project contains the information of survey from IBM indicating whether there is any attrition. In this project employee attrition probability is predicted using deep learning model and binary classification technique.
