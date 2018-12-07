@@ -3,9 +3,9 @@
 ### How to train the model and run the webserver
 
 #### 1-Model training: 
-Run predict.py file in windows commandline or Mac/Linux terminal as fllows:
+Run att_predict.py file  by typing command bellow in windows commandline or Mac/Linux terminal as follows:
            
-           computer:~ User name$ python perdict.py
+           computer:~ User name$ python att_perdict.py
           
      
 #### 2- How to test the API(Flask application)
@@ -17,9 +17,13 @@ Run predict.py file in windows commandline or Mac/Linux terminal as fllows:
 
 
 #### 3- Run the web servire (Flask application)
-           ,,,
-           code here...
-           ,,,
+Run prdcit.py file (locate it in flask_app folder) by typing commands bellow in Windows Commandline application or Mac/Linux Terminal application :
+
+                     computer:~ User name$ python perdict.py
+                     
+ command above will rund the Flaks webserver.
+                  
+                    
 
 #### Data:
 Employee attrition is one the main contributing factors to business disruption cost increase and performance loss of companies. To be able to predict the employee attrition increases HR ability to make decisions and solve the problem on time. Dataset that is used in this project contains the information of survey from IBM indicating whether there is any attrition. In this project employee attrition probability is predicted using deep learning model and binary classification technique.
