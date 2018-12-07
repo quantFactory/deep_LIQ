@@ -3,7 +3,7 @@
 ### How to train the model and run the webserver
 
 #### 1-Model training: 
-Run att_predict.py file by typing command below in Windows commandline applikcation  or Mac/Linux Terminal application :
+Run att_predict.py file by typing command below in Windows commandline applikcation  or Mac/Linux Terminal application:
            
            computerName:~ Username$ python att_perdict.py
           
