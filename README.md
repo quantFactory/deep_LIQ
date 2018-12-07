@@ -5,8 +5,13 @@
 #### 1-Model training: 
 Run att_predict.py file by typing command below in Windows commandline tool  or Mac/Linux Terminal application:
            
+           Mac/Linux:
            computerName:~ Username$ python att_perdict.py
+           
+           Windows:
+           C:\Users\username> python att_predict.py
           
+                                 
      
 #### 2- How to test the API(Flask application)
         
