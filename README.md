@@ -5,10 +5,10 @@
 #### 1-Model training: 
 Run att_predict.py file by typing command below in Windows commandline tool  or Mac/Linux Terminal application:
            
-           Mac/Linux:
+           in Mac/Linux terminal:
            computerName:~ Username$ python att_perdict.py
            
-           Windows:
+           in Windows Commandline:
            C:\Users\username> python att_predict.py
           
                                  
