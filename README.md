@@ -37,7 +37,7 @@ Run prdcit.py file (locate it in flask_app folder) by typing commands below in W
            Windows:
            C:\Users\username> python predict.py
                      
- command above will runs the Flaks webserver.
+ command above will runs the Flaks webserver and can now access the REST API via http://127.0.0.1:5000
                   
                     
 
