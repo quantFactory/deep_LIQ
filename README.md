@@ -2,6 +2,13 @@
 
 ### How to train the model and run the webserver
 
+#### Get Started
+           $ pip install flask gevent requests
+           
+
+#### Clone the repo
+           $ git clone https://github.com/quantFactory/deep_LIQ
+           
 #### 1-Model training: 
 Run att_predict.py file by typing command below in Windows commandline tool  or Mac/Linux Terminal application:
            
